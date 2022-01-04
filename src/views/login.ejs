@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        label,
+        button,
+        h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        div {
+            margin: 10px 0;
+        }
+
+        div button,
+        div a {
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            text-align: center;
+            width: 120px;
+            cursor: pointer;
+        }
+
+        div a:hover {
+            color: rgb(82, 2, 2);
+        }
+
+        label {
+            display: inline-block;
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <% if (messages.error) { %>
+    <% messages.error %>
+    <% } %>
+    <form action="/login" method="POST">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+        <div>
+            <a href="/register">Go to Register</a>
+        </div>
+    </form>
+</body>
+
+</html>
