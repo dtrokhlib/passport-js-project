@@ -8,6 +8,7 @@ import { defaultRouter } from './routers/default.js';
 import flash from 'express-flash';
 import session from 'express-session';
 import { UserModel } from './mongoose/userModel.js';
+import methodOverride from 'method-override';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,6 +43,7 @@ export class App {
 		);
 		this.app.use(passport.initialize());
 		this.app.use(passport.session());
+		this.app.use(methodOverride('_method'));
 	}
 
 	userRouters() {
@@ -53,11 +55,11 @@ export class App {
 	passportSetup() {
 		passport.use(new Strategy({ usernameField: 'email' }, authenticateUser));
 		passport.serializeUser((user, done) => {
-			done(null, user.id);
+			done(null, user._id);
 		});
 		passport.deserializeUser(async (id, done) => {
 			UserModel.findById(id, (err, user) => {
-				done(err, user);
+				done(null, user);
 			});
 		});
 	}

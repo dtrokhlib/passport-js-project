@@ -7,6 +7,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
     "mongoose": "^6.1.4",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"

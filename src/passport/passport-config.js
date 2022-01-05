@@ -9,10 +9,8 @@ export const authenticateUser = async (email, password, done) => {
 	try {
 		const isMatch = await UserModel.comparePasswords(user, password);
 		if (isMatch) {
-            console.log('2');
 			return done(null, user);
 		} else {
-            console.log('3');
 			return done(null, false, { message: 'Password is not correct ' });
 		}
 	} catch (error) {
